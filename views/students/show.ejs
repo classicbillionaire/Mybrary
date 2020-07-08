@@ -1,0 +1,9 @@
+<h2 class="page-header"><%= student.name %></h2>
+
+<div>Lab: <%= student.lab.name %></div>
+
+<div>Description: <%= student.description %></div>
+
+<a href="/students/<%= student.id %>/edit">编辑</a>
+<%- include('../partials/deleteForm', { url:`/students/${student.id}` }) %>
+<a href="/labs/<%= student.lab.id %>">查看实验</a>

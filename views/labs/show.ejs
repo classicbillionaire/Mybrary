@@ -1,0 +1,12 @@
+<h2 class="page-header"><%= lab.name %></h2>
+<button class="btn"><a class="cancel" href="/labs/<%= lab.id %>/edit">编辑</a></button>
+<%- include('../partials/deleteForm', {url: `/labs/${lab.id}` }) %>
+<% if (studentsByLab.length > 0) { %>
+    <h2>实验已有学生（无法删除）</h2>
+    <% studentsByLab.forEach(student => { %>
+        <a href="/students/<%= student.id %>">
+          
+           <div>Students: <%= student.name %></div>
+        </a>
+    <% }) %>
+<% } %>

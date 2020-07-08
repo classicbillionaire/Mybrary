@@ -9,12 +9,15 @@ const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 
 const indexRouter = require('./routes/index')
-const authorRouter = require('./routes/authors')
-const bookRouter = require('./routes/books')
+const labRouter = require('./routes/labs')
+const studentRouter = require('./routes/students')
 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
 app.set('layout', 'layouts/layout')
+app.set('public', __dirname + '/public')
+app.use(express.static(__dirname + '/public'));
+
 app.use(expressLayouts)
 app.use(methodOverride('_method'))
 app.use(express.static('public'))
@@ -28,7 +31,7 @@ db.once('open', () => console.log('connected to Mongoose'))
 
 
 app.use('/', indexRouter)
-app.use('/authors', authorRouter)
-app.use('/books', bookRouter)
+app.use('/labs', labRouter)
+app.use('/students', studentRouter)
 
 app.listen(process.env.PORT || 3000)

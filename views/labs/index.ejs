@@ -1,0 +1,16 @@
+<h2 class="page-header">搜索实验</h2>
+<form action="/labs" method="GET">
+    <label>名称</label>
+    <input type="text" name="name" value="<%= searchOptions.name %>">
+    <button class="btn" type="submit">搜索</button>
+</form>
+<br>
+<% labs.forEach(lab => { %>
+    <div><%= lab.name %></div>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="/labs/<%= lab.id %>">View</a>
+      <a class="btn btn-primary" href="/labs/<%= lab.id %>/edit">Edit</a>
+      <%- include('../partials/deleteForm',
+                  { url: `/labs/${lab.id}` }) %>
+    </div>
+  <% }) %>

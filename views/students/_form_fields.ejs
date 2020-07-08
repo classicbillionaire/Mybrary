@@ -1,0 +1,22 @@
+<div>
+   <label>姓名</label>
+    <input type="text" name="name" value="<%= student.name %>">
+</div>
+<div>
+    <label>实验名称</label>
+    <select name="lab">
+    <% labs.forEach(lab => { %>
+        <% if (lab.id === student.lab) { %>
+            <option selected label="<%= lab.name %>" value="<%= lab.id %>">
+        <% } else { %>
+            <option label="<%= lab.name %>" value="<%= lab.id %>">   
+        <% } %>
+    <% }) %>
+    </select>
+</div>
+
+
+<div>
+    <label>备注</label>
+    <textarea name="description"><%= student.description %></textarea>
+</div>

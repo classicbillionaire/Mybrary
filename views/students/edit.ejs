@@ -1,0 +1,6 @@
+<h2 class="page-header">编辑</h2>
+<form action="/students/<%= student.id %>?_method=PUT" method="POST">
+        <%- include('_form_fields') %>
+        <a href="/students">取消</a>
+        <button type="submit">更新</button>
+</form>
